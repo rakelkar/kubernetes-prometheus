@@ -8,6 +8,13 @@ metadata:
 data:
   prometheus.rules: |-
     groups:
+    - name: deployment-capacity
+      interval: 60s
+      rules:
+      - record: DeploymentCapacity
+        expr: 1
+        labels:
+          azureml_metric_storage: "1"
     - name: devopscube demo alert
       rules:
       - alert: High Pod Memory
